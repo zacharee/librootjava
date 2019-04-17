@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 26
@@ -65,78 +65,78 @@ ext {
     bintrayName = artifact
 }
 
-task installMavenLocal(type: Upload) {
-    repositories.mavenInstaller {
-        configuration = configurations['archives']
-        pom.project {
-            packaging 'aar'
-            groupId = publishedGroupId
-            artifactId = artifact
-            version = libraryVersion + '-SNAPSHOT'
-        }
-    }
-}
+//task installMavenLocal(type: Upload) {
+//    repositories.mavenInstaller {
+//        configuration = configurations['archives']
+//        pom.project {
+//            packaging 'aar'
+//            groupId = publishedGroupId
+//            artifactId = artifact
+//            version = libraryVersion + '-SNAPSHOT'
+//        }
+//    }
+//}
 
 // Workaround bintray bug ignoring these from pom and bintray settings
 version = libraryVersion
 group = publishedGroupId
 
-bintray {
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    user = properties.getProperty('bintray.user')
-    key = properties.getProperty('bintray.apikey')
+//bintray {
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    user = properties.getProperty('bintray.user')
+//    key = properties.getProperty('bintray.apikey')
+//
+//    configurations = ['archives']
+//    dryRun = false
+//    publish = true
+//    pkg {
+//        repo = bintrayRepo
+//        name = libraryName
+//        desc = libraryDescription
+//        websiteUrl = siteUrl
+//        issueTrackerUrl = issueTrackerUrl   // doesn't actually work?
+//        vcsUrl = gitUrl
+//        //githubRepo = gitUrl               // some more bintray weirdness here, breaks upload
+//        //githubReleaseNotesFile = 'README.md'
+//        licenses = allLicenses
+//        publicDownloadNumbers = true
+//        version {
+//            name = libraryVersion
+//            released = new Date()
+//        }
+//    }
+//}
 
-    configurations = ['archives']
-    dryRun = false
-    publish = true
-    pkg {
-        repo = bintrayRepo
-        name = libraryName
-        desc = libraryDescription
-        websiteUrl = siteUrl
-        issueTrackerUrl = issueTrackerUrl   // doesn't actually work?
-        vcsUrl = gitUrl
-        //githubRepo = gitUrl               // some more bintray weirdness here, breaks upload
-        //githubReleaseNotesFile = 'README.md'
-        licenses = allLicenses
-        publicDownloadNumbers = true
-        version {
-            name = libraryVersion
-            released = new Date()
-        }
-    }
-}
+//install {
+//    repositories.mavenInstaller {
+//        pom.project {
+//            packaging 'aar'
+//            groupId = publishedGroupId
+//            artifactId = artifact
+//            name libraryName
+//            version = libraryVersion
+//            url siteUrl
+//            licenses {
+//                license {
+//                    name licenseName
+//                    url licenseUrl
+//                }
+//            }
+//            developers {
+//                developer {
+//                    id developerId
+//                    name developerName
+//                    email developerEmail
+//                }
+//            }
+//            scm {
+//                connection gitUrl
+//                developerConnection gitUrl
+//                url gitUrl
+//            }
+//        }
+//    }
+//}
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId = publishedGroupId
-            artifactId = artifact
-            name libraryName
-            version = libraryVersion
-            url siteUrl
-            licenses {
-                license {
-                    name licenseName
-                    url licenseUrl
-                }
-            }
-            developers {
-                developer {
-                    id developerId
-                    name developerName
-                    email developerEmail
-                }
-            }
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-                url gitUrl
-            }
-        }
-    }
-}
-
-bintrayUpload.dependsOn install
+//bintrayUpload.dependsOn install

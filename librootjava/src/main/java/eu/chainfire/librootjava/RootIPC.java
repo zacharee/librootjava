@@ -42,9 +42,9 @@ public class RootIPC {
         }
     }
 
-    private final String packageName;
-    private final IBinder userIPC;
-    private final int code;
+    protected final String packageName;
+    protected final IBinder userIPC;
+    protected final int code;
 
     private final Object helloWaiter = new Object();
     private final Object byeWaiter = new Object();
@@ -84,7 +84,7 @@ public class RootIPC {
         this.packageName = packageName;
         userIPC = ipc;
         this.code = code;
-        broadcastIPC();
+//        broadcastIPC();
 
         if (connection_timeout_ms < 0) connection_timeout_ms = 30 * 1000;
         if (connection_timeout_ms > 0) {
@@ -239,7 +239,7 @@ public class RootIPC {
      * Our own wrapper around the supplied Binder interface, which allows us to keep track of
      * non-root process' state and connection state.
      */
-    private final IBinder binder = new IRootIPC.Stub() {
+    protected final IBinder binder = new IRootIPC.Stub() {
         @Override
         public void hello(IBinder self) {
             // incoming connection from the non-root process

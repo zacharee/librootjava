@@ -72,10 +72,10 @@ public abstract class RootIPCReceiver<T> {
      */
     public abstract void onDisconnect(T ipc);
 
-    static final String BROADCAST_ACTION = "eu.chainfire.librootjava.RootIPCReceiver.BROADCAST";
-    static final String BROADCAST_EXTRA = "eu.chainfire.librootjava.RootIPCReceiver.BROADCAST.EXTRA";
-    static final String BROADCAST_BINDER = "binder";
-    static final String BROADCAST_CODE = "code";
+    public static final String BROADCAST_ACTION = "eu.chainfire.librootjava.RootIPCReceiver.BROADCAST";
+    public static final String BROADCAST_EXTRA = "eu.chainfire.librootjava.RootIPCReceiver.BROADCAST.EXTRA";
+    public static final String BROADCAST_BINDER = "binder";
+    public static final String BROADCAST_CODE = "code";
 
     private final HandlerThread handlerThread;
     private final Handler handler;
