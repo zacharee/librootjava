@@ -30,7 +30,7 @@ dependencies {
     //implementation('eu.chainfire:librootjava:1.3.0-SNAPSHOT') { changing = true }
 
     /* Use bintray/jcenter version */
-    implementation 'eu.chainfire:librootjava:1.3.0'
+    implementation project(':librootjava')
 }
 
 task sourcesJar(type: Jar) {
