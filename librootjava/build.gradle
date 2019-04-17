@@ -40,30 +40,30 @@ artifacts {
     archives sourcesJar
 }
 
-ext {
-    libraryName = 'libRootJava'
-    libraryDescription = 'Run Java (and Kotlin) code as root!'
-
-    publishedGroupId = 'eu.chainfire'
-    artifact = 'librootjava'
-
-    siteUrl = 'https://github.com/Chainfire/librootjava'
-    gitUrl = 'https://github.com/Chainfire/librootjava.git'
-    issueTrackerUrl = 'https://github.com/Chainfire/librootjava/issues'
-
-    libraryVersion = '1.3.0'
-
-    developerId = 'Chainfire'
-    developerName = 'Jorrit Jongma'
-    developerEmail = 'chainfire@chainfire.eu'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-
-    bintrayRepo = 'maven'
-    bintrayName = artifact
-}
+//ext {
+//    libraryName = 'libRootJava'
+//    libraryDescription = 'Run Java (and Kotlin) code as root!'
+//
+//    publishedGroupId = 'eu.chainfire'
+//    artifact = 'librootjava'
+//
+//    siteUrl = 'https://github.com/Chainfire/librootjava'
+//    gitUrl = 'https://github.com/Chainfire/librootjava.git'
+//    issueTrackerUrl = 'https://github.com/Chainfire/librootjava/issues'
+//
+//    libraryVersion = '1.3.0'
+//
+//    developerId = 'Chainfire'
+//    developerName = 'Jorrit Jongma'
+//    developerEmail = 'chainfire@chainfire.eu'
+//
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//
+//    bintrayRepo = 'maven'
+//    bintrayName = artifact
+//}
 
 //task installMavenLocal(type: Upload) {
 //    repositories.mavenInstaller {
@@ -78,8 +78,8 @@ ext {
 //}
 
 // Workaround bintray bug ignoring these from pom and bintray settings
-version = libraryVersion
-group = publishedGroupId
+//version = libraryVersion
+//group = publishedGroupId
 
 //bintray {
 //    Properties properties = new Properties()
