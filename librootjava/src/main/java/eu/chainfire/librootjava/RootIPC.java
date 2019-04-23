@@ -46,8 +46,8 @@ public class RootIPC {
     protected final IBinder userIPC;
     protected final int code;
 
-    private final Object helloWaiter = new Object();
-    private final Object byeWaiter = new Object();
+    public final Object helloWaiter = new Object();
+    public final Object byeWaiter = new Object();
 
     private class Connection {
         private final IBinder binder;
@@ -103,14 +103,18 @@ public class RootIPC {
         }
 
         if (blocking) {
-            // this will loop until all connections have said goodbye or their processes have died
-            synchronized (byeWaiter) {
-                while (!haveAllClientsDisconnected()) {
-                    try {
-                        byeWaiter.wait();
-                    } catch (InterruptedException e) {
-                        return;
-                    }
+            startBlock();
+        }
+    }
+
+    public void startBlock() {
+        // this will loop until all connections have said goodbye or their processes have died
+        synchronized (byeWaiter) {
+            while (!haveAllClientsDisconnected()) {
+                try {
+                    byeWaiter.wait();
+                } catch (InterruptedException e) {
+                    return;
                 }
             }
         }
